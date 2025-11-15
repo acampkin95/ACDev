@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway # or 'github' | 'gitlab' | 'bitbucket'
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+local_backend: true
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
