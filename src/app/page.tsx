@@ -3,14 +3,7 @@ import { getPage, hasPage } from "@/lib/pages";
 import SafeMDX from "@/components/SafeMDX";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import {
-  featuredProjects,
-  heroHighlights,
-  heroMetrics,
-  processSteps,
-  solutionThemes,
-  testimonials,
-} from "@/lib/site";
+import { getSiteContent, getIconComponent } from "@/lib/site";
 
 export default function Home() {
   if (hasPage("home")) {
@@ -27,6 +20,9 @@ export default function Home() {
       </div>
     );
   }
+
+  const { heroHighlights, heroMetrics, solutionThemes, featuredProjects, processSteps, testimonials } =
+    getSiteContent();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-20">
@@ -88,25 +84,28 @@ export default function Home() {
           description="Every engagement is designed to be observable, adaptable and maintainable by your own teams."
         />
         <div className="grid gap-6 md:grid-cols-2">
-          {solutionThemes.map((solution, index) => (
-            <Reveal key={solution.name} delay={index * 0.05} className="card relative overflow-hidden p-6 transition hover:-translate-y-1">
-              <div className="absolute inset-0 opacity-0 transition hover:opacity-100" aria-hidden>
-                <div className="h-full w-full bg-gradient-to-br from-[var(--accent)]/10 to-transparent" />
-              </div>
-              <div className="relative flex items-center gap-3">
-                <solution.icon className="h-5 w-5 text-[var(--accent)]" />
-                <h3 className="text-lg font-semibold text-[var(--text-primary)]">{solution.name}</h3>
-              </div>
-              <p className="relative mt-3 text-sm text-[var(--text-muted)]">{solution.summary}</p>
-              <ul className="relative mt-4 flex flex-wrap gap-2 text-xs text-[var(--text-muted)]">
-                {solution.bullets.map((bullet) => (
-                  <li key={bullet} className="rounded-full border border-[var(--border-soft)] px-3 py-1">
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
+          {solutionThemes.map((solution, index) => {
+            const Icon = getIconComponent(solution.icon);
+            return (
+              <Reveal key={solution.name} delay={index * 0.05} className="card relative overflow-hidden p-6 transition hover:-translate-y-1">
+                <div className="absolute inset-0 opacity-0 transition hover:opacity-100" aria-hidden>
+                  <div className="h-full w-full bg-gradient-to-br from-[var(--accent)]/10 to-transparent" />
+                </div>
+                <div className="relative flex items-center gap-3">
+                  <Icon className="h-5 w-5 text-[var(--accent)]" />
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">{solution.name}</h3>
+                </div>
+                <p className="relative mt-3 text-sm text-[var(--text-muted)]">{solution.summary}</p>
+                <ul className="relative mt-4 flex flex-wrap gap-2 text-xs text-[var(--text-muted)]">
+                  {solution.bullets.map((bullet) => (
+                    <li key={bullet} className="rounded-full border border-[var(--border-soft)] px-3 py-1">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -137,16 +136,19 @@ export default function Home() {
           description="Clear milestones, transparent burndown, pairing with your engineers, and a focus on change enablement."
         />
         <div className="grid gap-6 md:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <Reveal key={step.title} delay={index * 0.05} className="card p-6">
-              <div className="flex items-center gap-3">
-                <step.icon className="h-5 w-5 text-[var(--accent)]" />
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
-              </div>
-              <h3 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
-              <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
-            </Reveal>
-          ))}
+          {processSteps.map((step, index) => {
+            const Icon = getIconComponent(step.icon);
+            return (
+              <Reveal key={step.title} delay={index * 0.05} className="card p-6">
+                <div className="flex items-center gap-3">
+                  <Icon className="h-5 w-5 text-[var(--accent)]" />
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
+                </div>
+                <h3 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
+                <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 

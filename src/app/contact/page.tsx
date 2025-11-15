@@ -3,17 +3,12 @@ import { hasPage, getPage } from "@/lib/pages";
 import SafeMDX from "@/components/SafeMDX";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import { getSiteContent } from "@/lib/site";
 
 export const metadata = {
   title: "Contact",
   description: "Get in touch to scope your AI project with ACDev.",
 };
-
-const contactDetails = [
-  { label: "Reply time", value: "under 1 business day" },
-  { label: "Availability", value: "APAC · AMER friendly" },
-  { label: "Email", value: "hello@acdev.studio" },
-];
 
 export default function ContactPage() {
   if (hasPage("contact")) {
@@ -33,6 +28,8 @@ export default function ContactPage() {
       </div>
     );
   }
+
+  const { contactDetails } = getSiteContent();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-20">
@@ -61,7 +58,9 @@ export default function ContactPage() {
           </div>
           <div className="rounded-3xl border border-[var(--border-soft)] bg-[var(--panel)] p-6">
             <h4 className="text-lg font-semibold text-[var(--text-primary)]">Prefer email?</h4>
-            <p className="mt-2 text-sm text-[var(--text-muted)]">Send context to hello@acdev.studio</p>
+            <p className="mt-2 text-sm text-[var(--text-muted)]">
+              Send context to <a className="underline" href="mailto:hello@acdev.studio">hello@acdev.studio</a>
+            </p>
             <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[var(--text-muted)]">Office</p>
             <p className="text-sm text-[var(--text-muted)]">Perth, Western Australia · Remote friendly</p>
           </div>

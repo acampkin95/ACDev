@@ -3,21 +3,13 @@ import { hasPage, getPage } from "@/lib/pages";
 import SafeMDX from "@/components/SafeMDX";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { processSteps, solutionThemes } from "@/lib/site";
-import { ShieldCheck } from "lucide-react";
+import { getSiteContent, getIconComponent } from "@/lib/site";
 
 export const metadata = {
   title: "AI Solutions",
   description:
     "Productised AI solutions: MCP providers, workflow automation, assistants, integrations and support.",
 };
-
-const guardrails = [
-  "Design reviews with product, legal, and security partners.",
-  "Observability across latency, cost, and safety events.",
-  "Evaluation harnesses to benchmark quality vs. spend.",
-  "Runbooks for fallback, escalation, and support.",
-];
 
 export default function SolutionsPage() {
   if (hasPage("solutions")) {
@@ -35,6 +27,8 @@ export default function SolutionsPage() {
     );
   }
 
+  const { solutionThemes, guardrails, processSteps } = getSiteContent();
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-20">
       <SectionHeading
@@ -44,22 +38,25 @@ export default function SolutionsPage() {
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {solutionThemes.map((solution, index) => (
-          <Reveal key={solution.name} delay={index * 0.05} className="card p-6">
-            <div className="flex items-center gap-3">
-              <solution.icon className="h-5 w-5 text-[var(--accent)]" />
-              <h3 className="text-lg font-semibold text-[var(--text-primary)]">{solution.name}</h3>
-            </div>
-            <p className="mt-3 text-sm text-[var(--text-muted)]">{solution.summary}</p>
-            <ul className="mt-4 flex flex-wrap gap-2 text-xs text-[var(--text-muted)]">
-              {solution.bullets.map((bullet) => (
-                <li key={bullet} className="rounded-full border border-[var(--border-soft)] px-3 py-1">
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        ))}
+        {solutionThemes.map((solution, index) => {
+          const Icon = getIconComponent(solution.icon);
+          return (
+            <Reveal key={solution.name} delay={index * 0.05} className="card p-6">
+              <div className="flex items-center gap-3">
+                <Icon className="h-5 w-5 text-[var(--accent)]" />
+                <h3 className="text-lg font-semibold text-[var(--text-primary)]">{solution.name}</h3>
+              </div>
+              <p className="mt-3 text-sm text-[var(--text-muted)]">{solution.summary}</p>
+              <ul className="mt-4 flex flex-wrap gap-2 text-xs text-[var(--text-muted)]">
+                {solution.bullets.map((bullet) => (
+                  <li key={bullet} className="rounded-full border border-[var(--border-soft)] px-3 py-1">
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          );
+        })}
       </div>
 
       <section className="mt-20 rounded-[2rem] border border-[var(--border-soft)] bg-[var(--panel)] p-8">
@@ -71,7 +68,7 @@ export default function SolutionsPage() {
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {guardrails.map((guardrail) => (
             <div key={guardrail} className="flex items-start gap-3 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)] p-4">
-              <ShieldCheck className="h-5 w-5 text-[var(--accent)]" />
+              <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)]">●</span>
               <p className="text-sm text-[var(--text-muted)]">{guardrail}</p>
             </div>
           ))}
@@ -85,16 +82,19 @@ export default function SolutionsPage() {
           description="Each solution follows our 6–8 week cadence with transparent milestones and enablement."
         />
         <div className="grid gap-6 md:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <Reveal key={step.title} delay={index * 0.05} className="card p-6">
-              <div className="flex items-center gap-3">
-                <step.icon className="h-5 w-5 text-[var(--accent)]" />
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
-              </div>
-              <h3 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
-              <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
-            </Reveal>
-          ))}
+          {processSteps.map((step, index) => {
+            const Icon = getIconComponent(step.icon);
+            return (
+              <Reveal key={step.title} delay={index * 0.05} className="card p-6">
+                <div className="flex items-center gap-3">
+                  <Icon className="h-5 w-5 text-[var(--accent)]" />
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
+                </div>
+                <h3 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
+                <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 

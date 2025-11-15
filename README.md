@@ -26,6 +26,7 @@ npm install
 ## Content workflow
 
 - Marketing pages and blog posts live in `content/pages` and `content/blog` (MD/MDX).
+- Global marketing UI elements (hero highlights, solution cards, testimonials, etc.) live in `content/settings/site.json` and are editable via the CMS “Site Settings” panel.
 - `/admin` hosts Decap CMS for non-technical editing. The area is Basic Auth protected via `CMS_BASIC_AUTH_USER`/`CMS_BASIC_AUTH_PASS` and publishes directly to the filesystem when run locally (`public/uploads` stores assets).
 - Runtime MDX rendering is sanitized via `SafeMDX` to prevent untrusted HTML/JS injection.
 

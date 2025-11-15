@@ -3,7 +3,7 @@ import { hasPage, getPage } from "@/lib/pages";
 import SafeMDX from "@/components/SafeMDX";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { featuredProjects, processSteps, testimonials } from "@/lib/site";
+import { getSiteContent, getIconComponent } from "@/lib/site";
 
 export const metadata = {
   title: "Work",
@@ -25,6 +25,9 @@ export default function WorkPage() {
       </div>
     );
   }
+
+  const { featuredProjects, testimonials, processSteps } = getSiteContent();
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-20">
       <SectionHeading
@@ -63,19 +66,25 @@ export default function WorkPage() {
           description="Regular demos, shared rituals, and enablement leave your teams ready to run with the work."
         />
         <div className="grid gap-6 md:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <Reveal key={step.title} delay={index * 0.05} className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
-              <h3 className="mt-2 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
-              <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
-            </Reveal>
-          ))}
+          {processSteps.map((step, index) => {
+            const Icon = getIconComponent(step.icon);
+            return (
+              <Reveal key={step.title} delay={index * 0.05} className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)] p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
+                <div className="mt-2 flex items-center gap-2 text-[var(--text-primary)]">
+                  <Icon className="h-5 w-5 text-[var(--accent)]" />
+                  <h3 className="text-lg font-semibold">{step.title}</h3>
+                </div>
+                <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
       <div className="mt-24 flex flex-wrap items-center gap-4 rounded-2xl border border-[var(--border-soft)] bg-[var(--panel)] px-6 py-8">
         <div className="flex-1">
-          <p className="text-sm uppercase tracking-[0.4em] text-[var(--text-muted)]">Let&apos;s collaborate</p>
+          <p className="text-sm uppercase tracking-[0.4em] text-[var(--text-muted)]">Let’s collaborate</p>
           <h3 className="mt-2 text-2xl font-semibold text-[var(--text-primary)]">Book a walkthrough of relevant work.</h3>
           <p className="mt-2 text-sm text-[var(--text-muted)]">
             Share a few goals and we’ll curate case studies plus an approach for your team.

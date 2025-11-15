@@ -32,3 +32,109 @@ collections:
       - { label: "Summary", name: "summary", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "site"
+        label: "Marketing Content"
+        file: "content/settings/site.json"
+        editor:
+          preview: false
+        fields:
+          - label: "Hero Highlights"
+            name: "heroHighlights"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+          - label: "Hero Metrics"
+            name: "heroMetrics"
+            widget: "list"
+            fields:
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Service Stacks"
+            name: "serviceStacks"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Code", value: "code" }
+                  - { label: "Globe", value: "globe" }
+                  - { label: "Workflow", value: "workflow" }
+                  - { label: "Brain", value: "brain" }
+                  - { label: "Sparkles", value: "sparkles" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+          - label: "Solution Themes"
+            name: "solutionThemes"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Brain", value: "brain" }
+                  - { label: "Workflow", value: "workflow" }
+                  - { label: "Bot", value: "bot" }
+                  - { label: "Cable", value: "cable" }
+                  - { label: "Sparkles", value: "sparkles" }
+                  - { label: "Shield", value: "shield" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+          - label: "Featured Projects"
+            name: "featuredProjects"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - label: "Stack"
+                name: "stack"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "Result", name: "result", widget: "string" }
+          - label: "Process Steps"
+            name: "processSteps"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Duration", name: "duration", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Timer", value: "timer" }
+                  - { label: "Circuit", value: "circuit" }
+                  - { label: "Chart", value: "chart" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+          - label: "Guardrails"
+            name: "guardrails"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - label: "Playbooks"
+            name: "playbooks"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - label: "Contact Details"
+            name: "contactDetails"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
