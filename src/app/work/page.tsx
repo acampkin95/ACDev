@@ -40,7 +40,7 @@ export default function WorkPage() {
         {featuredProjects.map((project, index) => (
           <Reveal key={project.title} delay={index * 0.05} className="card flex flex-col justify-between p-6">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)]">{project.stack.join(" · ")}</p>
+              <p className="eyebrow text-sm">{project.stack.join(" · ")}</p>
               <h3 className="mt-3 text-xl font-semibold text-[var(--text-primary)]">{project.title}</h3>
               <p className="mt-2 text-sm text-[var(--text-muted)]">{project.summary}</p>
             </div>
@@ -70,7 +70,7 @@ export default function WorkPage() {
             const Icon = getIconComponent(step.icon);
             return (
               <Reveal key={step.title} delay={index * 0.05} className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)] p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
+                <p className="eyebrow text-xs">{step.duration}</p>
                 <div className="mt-2 flex items-center gap-2 text-[var(--text-primary)]">
                   <Icon className="h-5 w-5 text-[var(--accent)]" />
                   <h3 className="text-lg font-semibold">{step.title}</h3>
@@ -84,15 +84,15 @@ export default function WorkPage() {
 
       <div className="mt-24 flex flex-wrap items-center gap-4 rounded-2xl border border-[var(--border-soft)] bg-[var(--panel)] px-6 py-8">
         <div className="flex-1">
-          <p className="text-sm uppercase tracking-[0.4em] text-[var(--text-muted)]">Let’s collaborate</p>
+          <p className="eyebrow text-sm">Let&apos;s collaborate</p>
           <h3 className="mt-2 text-2xl font-semibold text-[var(--text-primary)]">Book a walkthrough of relevant work.</h3>
           <p className="mt-2 text-sm text-[var(--text-muted)]">
-            Share a few goals and we’ll curate case studies plus an approach for your team.
+            Share a few goals and we&apos;ll curate case studies plus an approach for your team.
           </p>
         </div>
         <Link
           href="/contact"
-          className="rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-5 py-3 font-semibold text-white shadow-lg shadow-[var(--glow)]"
+          className="btn-primary"
         >
           Book a discovery call
         </Link>

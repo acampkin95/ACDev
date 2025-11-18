@@ -61,7 +61,7 @@ export default function ContactPage() {
             <p className="mt-2 text-sm text-[var(--text-muted)]">
               Send context to <a className="underline" href="mailto:hello@acdev.studio">hello@acdev.studio</a>
             </p>
-            <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[var(--text-muted)]">Office</p>
+            <p className="eyebrow mt-4 text-xs">Office</p>
             <p className="text-sm text-[var(--text-muted)]">Perth, Western Australia · Remote friendly</p>
           </div>
         </Reveal>

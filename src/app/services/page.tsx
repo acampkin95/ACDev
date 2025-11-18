@@ -120,7 +120,7 @@ export default function ServicesPage() {
               <Reveal key={step.title} delay={index * 0.05} className="card p-6">
                 <div className="flex items-center gap-3">
                   <Icon className="h-5 w-5 text-[var(--accent)]" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
+                  <p className="eyebrow text-xs">{step.duration}</p>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
                 <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
@@ -132,16 +132,16 @@ export default function ServicesPage() {
 
       <div className="mt-24 flex flex-wrap items-center gap-4 rounded-2xl border border-[var(--border-soft)] bg-[var(--panel)] px-6 py-8">
         <div className="flex-1">
-          <p className="text-sm uppercase tracking-[0.4em] text-[var(--text-muted)]">Let’s talk</p>
+          <p className="eyebrow text-sm">Let&apos;s talk</p>
           <h3 className="mt-2 text-2xl font-semibold text-[var(--text-primary)]">Which services unlock your roadmap?</h3>
           <p className="mt-2 text-sm text-[var(--text-muted)]">
-            Share context and we’ll propose a custom mix of build + enablement workstreams.
+            Share context and we&apos;ll propose a custom mix of build + enablement workstreams.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
             href="/contact"
-            className="rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-5 py-3 text-center font-semibold text-white shadow-lg shadow-[var(--glow)]"
+            className="btn-primary text-center"
           >
             Book a discovery call
           </Link>

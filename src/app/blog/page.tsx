@@ -29,7 +29,7 @@ export default function BlogIndex() {
               className="flex h-full flex-col justify-between rounded-3xl border border-[var(--border-soft)] bg-[var(--surface)] p-6 transition hover:-translate-y-1"
             >
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-[var(--text-muted)]">
+                <p className="eyebrow text-xs">
                   {format(new Date(post.date), "dd MMM yyyy")}
                 </p>
                 <h3 className="mt-3 text-xl font-semibold text-[var(--text-primary)]">{post.title}</h3>

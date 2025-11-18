@@ -75,7 +75,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="mt-8 grid gap-4 md:max-w-xl" aria-live="polite">
       <div className="hidden" aria-hidden="true">
-        <label className="mb-1 block text-sm text-zinc-300" htmlFor="website">
+        <label className="mb-1 block text-sm text-[var(--text-muted)]" htmlFor="website">
           Website
         </label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" className="hidden" />
@@ -136,14 +136,14 @@ export default function ContactForm() {
       <button
         disabled={status === "loading"}
         aria-busy={status === "loading"}
-        className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-6 py-3 font-semibold text-white shadow-lg shadow-[var(--glow)] transition disabled:opacity-60"
+        className="btn-primary inline-flex items-center justify-center disabled:opacity-60"
       >
         {status === "loading" ? "Sending..." : "Send message"}
       </button>
       {status === "success" && (
-        <p className="text-sm text-emerald-400">Thanks! We&apos;ll be in touch within one business day.</p>
+        <p className="text-sm text-[var(--accent)]">Thanks! We&apos;ll be in touch within one business day.</p>
       )}
-      {status === "error" && errorMessage && <p className="text-sm text-red-400">{errorMessage}</p>}
+      {status === "error" && errorMessage && <p className="text-sm text-[var(--accent-strong)]">{errorMessage}</p>}
     </form>
   );
 }

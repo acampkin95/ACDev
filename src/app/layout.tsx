@@ -90,7 +90,7 @@ export default function RootLayout({
         <header className="sticky top-0 z-40 border-b border-[var(--border-soft)]/60 bg-[var(--surface)]/80 backdrop-blur-2xl">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-              <span className="text-sm uppercase tracking-[0.4em] text-[var(--text-muted)]">AC</span>
+              <span className="eyebrow">AC</span>
               <span className="text-lg text-[var(--text-primary)]">Dev</span>
               <span className="tag hidden md:inline-flex">
                 <span className="dot" />
@@ -101,7 +101,7 @@ export default function RootLayout({
               {navLinks.map((item) => (
                 <Link
                   key={item.href}
-                  className="rounded-full border border-transparent px-3 py-1.5 text-[var(--text-muted)] transition hover:border-[var(--border-soft)] hover:text-[var(--text-primary)]"
+                  className="nav-link"
                   href={item.href}
                 >
                   {item.label}
@@ -112,7 +112,7 @@ export default function RootLayout({
               <ThemeToggle />
               <Link
                 href="/contact"
-                className="hidden rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[var(--glow)] transition hover:scale-[1.01] md:inline-flex"
+                className="btn-primary hidden text-sm md:inline-flex"
               >
                 Start a Project
               </Link>
@@ -131,7 +131,7 @@ export default function RootLayout({
             </div>
             <div className="grid grid-cols-2 gap-8 text-sm text-[var(--text-muted)] md:grid-cols-3">
               <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">Work</p>
+                <p className="eyebrow mb-3">Work</p>
                 <div className="flex flex-col gap-2">
                   <Link href="/services" className="hover:text-[var(--text-primary)]">Services</Link>
                   <Link href="/solutions" className="hover:text-[var(--text-primary)]">Solutions</Link>
@@ -139,7 +139,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">Resources</p>
+                <p className="eyebrow mb-3">Resources</p>
                 <div className="flex flex-col gap-2">
                   <Link href="/blog" className="hover:text-[var(--text-primary)]">Blog</Link>
                   <Link href="/contact" className="hover:text-[var(--text-primary)]">Contact</Link>
@@ -147,7 +147,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">Connect</p>
+                <p className="eyebrow mb-3">Connect</p>
                 <div className="flex flex-col gap-2">
                   <a href="mailto:hello@acdev.studio" className="hover:text-[var(--text-primary)]">hello@acdev.studio</a>
                   <p className="text-[var(--text-muted)]">+61 8 1234 5678</p>

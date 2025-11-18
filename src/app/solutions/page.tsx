@@ -88,7 +88,7 @@ export default function SolutionsPage() {
               <Reveal key={step.title} delay={index * 0.05} className="card p-6">
                 <div className="flex items-center gap-3">
                   <Icon className="h-5 w-5 text-[var(--accent)]" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
+                  <p className="eyebrow text-xs">{step.duration}</p>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
                 <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
@@ -99,16 +99,16 @@ export default function SolutionsPage() {
       </section>
 
       <section className="mt-20 rounded-[2rem] border border-[var(--border-strong)] bg-[var(--panel-strong)] px-6 py-12 text-center shadow-lg shadow-[var(--glow)] sm:px-12">
-        <p className="text-sm font-semibold uppercase tracking-[0.4em] text-[var(--text-muted)]">Next step</p>
+        <p className="eyebrow text-sm">Next step</p>
         <h2 className="mt-4 text-3xl font-semibold text-[var(--text-primary)]">Curate a solution plan.</h2>
         <p className="mx-auto mt-3 max-w-2xl text-[var(--text-muted)]">
-          We’ll review goals, systems, and metrics, then propose a tailored mix of solution modules with investment
+          We&apos;ll review goals, systems, and metrics, then propose a tailored mix of solution modules with investment
           levels and timelines.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/contact"
-            className="rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-6 py-3 font-semibold text-white shadow-lg shadow-[var(--glow)]"
+            className="btn-primary"
           >
             Talk to us
           </Link>

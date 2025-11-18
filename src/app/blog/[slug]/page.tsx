@@ -40,7 +40,7 @@ export default function BlogPost({ params }: Params) {
         ← Back to blog
       </Link>
       <div className="mt-6 rounded-[2.5rem] border border-[var(--border-soft)] bg-[var(--panel)] p-8">
-        <p className="text-xs uppercase tracking-[0.3em] text-[var(--text-muted)]">
+        <p className="eyebrow text-xs">
           {format(new Date(data.date ?? post.date), "dd MMM yyyy")} · {readingMins} min read
         </p>
         <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight text-[var(--text-primary)]">

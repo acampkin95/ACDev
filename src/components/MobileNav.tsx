@@ -18,11 +18,11 @@ export default function MobileNav() {
         <div className="absolute left-0 right-0 top-[68px] z-50 border-b border-[var(--border-soft)] bg-[var(--surface)]/95 pb-6 pt-4 backdrop-blur-xl">
           <div className="mx-auto max-w-6xl px-4">
             <nav className="grid gap-2 text-sm">
-              <Link onClick={() => setOpen(false)} className="rounded-full border border-transparent px-3 py-2 text-[var(--text-muted)] hover:border-[var(--border-soft)] hover:text-[var(--text-primary)]" href="/services">Services</Link>
-              <Link onClick={() => setOpen(false)} className="rounded-full border border-transparent px-3 py-2 text-[var(--text-muted)] hover:border-[var(--border-soft)] hover:text-[var(--text-primary)]" href="/solutions">Solutions</Link>
-              <Link onClick={() => setOpen(false)} className="rounded-full border border-transparent px-3 py-2 text-[var(--text-muted)] hover:border-[var(--border-soft)] hover:text-[var(--text-primary)]" href="/blog">Blog</Link>
-              <Link onClick={() => setOpen(false)} className="rounded-full border border-transparent px-3 py-2 text-[var(--text-muted)] hover:border-[var(--border-soft)] hover:text-[var(--text-primary)]" href="/contact">Contact</Link>
-              <Link onClick={() => setOpen(false)} href="/contact" className="mt-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-4 py-2 font-semibold text-white shadow-lg shadow-[var(--glow)]">Start a Project</Link>
+              <Link onClick={() => setOpen(false)} className="nav-link" href="/services">Services</Link>
+              <Link onClick={() => setOpen(false)} className="nav-link" href="/solutions">Solutions</Link>
+              <Link onClick={() => setOpen(false)} className="nav-link" href="/blog">Blog</Link>
+              <Link onClick={() => setOpen(false)} className="nav-link" href="/contact">Contact</Link>
+              <Link onClick={() => setOpen(false)} href="/contact" className="btn-primary mt-4">Start a Project</Link>
             </nav>
           </div>
         </div>

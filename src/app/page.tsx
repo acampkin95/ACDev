@@ -45,13 +45,13 @@ export default function Home() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="/solutions"
-            className="inline-flex items-center rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-6 py-3 font-medium text-white shadow-[0_20px_35px_var(--glow)] transition hover:scale-[1.01]"
+            className="btn-primary shadow-[0_20px_35px_var(--glow)]"
           >
             Explore solutions
           </Link>
           <Link
             href="/services"
-            className="inline-flex items-center rounded-full border border-[var(--border-strong)] px-6 py-3 font-medium text-[var(--text-primary)] transition hover:border-[var(--accent)]"
+            className="btn-secondary"
           >
             View services
           </Link>
@@ -119,7 +119,7 @@ export default function Home() {
           {featuredProjects.map((project, index) => (
             <Reveal key={project.title} delay={index * 0.05} className="card flex flex-col justify-between p-5">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)]">{project.stack.join(" · ")}</p>
+                <p className="eyebrow text-sm">{project.stack.join(" · ")}</p>
                 <h3 className="mt-3 text-xl font-semibold text-[var(--text-primary)]">{project.title}</h3>
                 <p className="mt-2 text-sm text-[var(--text-muted)]">{project.summary}</p>
               </div>
@@ -142,7 +142,7 @@ export default function Home() {
               <Reveal key={step.title} delay={index * 0.05} className="card p-6">
                 <div className="flex items-center gap-3">
                   <Icon className="h-5 w-5 text-[var(--accent)]" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">{step.duration}</p>
+                  <p className="eyebrow text-xs">{step.duration}</p>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">{step.title}</h3>
                 <p className="mt-2 text-sm text-[var(--text-muted)]">{step.description}</p>
@@ -163,22 +163,22 @@ export default function Home() {
       </section>
 
       <section className="mt-24 rounded-[2rem] border border-[var(--border-strong)] bg-[var(--panel-strong)] px-6 py-12 text-center shadow-lg shadow-[var(--glow)] sm:px-12">
-        <p className="text-sm font-semibold uppercase tracking-[0.4em] text-[var(--text-muted)]">Next step</p>
+        <p className="eyebrow text-sm">Next step</p>
         <h2 className="mt-4 text-3xl font-semibold text-[var(--text-primary)]">Ready to map your AI roadmap?</h2>
         <p className="mx-auto mt-3 max-w-2xl text-[var(--text-muted)]">
-          Book a 45-minute working session. We’ll review goals, systems, and success metrics, then share a tailored
+          Book a 45-minute working session. We&apos;ll review goals, systems, and success metrics, then share a tailored
           approach within a week.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/contact"
-            className="rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-strong)] px-6 py-3 font-semibold text-white shadow-lg shadow-[var(--glow)]"
+            className="btn-primary"
           >
             Book a discovery call
           </Link>
           <Link
             href="/work"
-            className="rounded-full border border-[var(--border-soft)] px-6 py-3 font-semibold text-[var(--text-primary)]"
+            className="btn-secondary"
           >
             Browse case studies
           </Link>
